@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DJANGO FORM</title>
+    <style>
+        center{
+            border: 2px solid black;
+        }
+        input{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Django Forms</h1>
+        <h2>Student_Detailes</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {{ESTFO.as_p}}
+            
+            <input type="submit" value="submit">
+        </form>
+    </center>
+</body>
+</html>
