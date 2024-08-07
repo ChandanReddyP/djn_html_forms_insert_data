@@ -27,3 +27,25 @@ def insert_topic(request):
             return HttpResponse('Topic is created')
 
     return render(request,'insert_topic.html',d)
+
+
+
+def insert_webpage(request):
+    EFWO=WebpageForm()
+    d={'EFWO':EFWO}
+
+    if request.method=='POST':
+        FWDO=WebpageForm(request.POST)
+        if FWDO.is_valid():
+            tn=FWDO.cleaned_data['topicname']
+            na=FWDO.cleaned_data['name']
+            ur=FWDO.cleaned_data['url']
+            em=FWDO.cleaned_data['email']
+
+            TO=Topic.objects.get(topic_name=tn)
+            WO=Webpage.objects.get_or_create(topi_name=TO,name=na,url=ur,email=em)[0]
+            WO.save()
+
+            return HttpResponse('webpage is created')
+
+    return render(request,'insert_webpage.html',d)
