@@ -1,4 +1,5 @@
 from django import forms
+from app.models import *
 
 c=[('Male','male'),('Female','female')]
 s=[('Python','python'),('Sql','sql')]
@@ -11,3 +12,7 @@ class StudentForm(forms.Form):
     subjects=forms.MultipleChoiceField(choices=s,widget=forms.CheckboxSelectMultiple)
     password=forms.CharField(widget=forms.PasswordInput)
     address=forms.CharField(widget=forms.Textarea(attrs={'cols':20,'rows':5}))
+
+
+class TopicForm(forms.Form):
+    topicname=forms.CharField(max_length=100)
