@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert_accessrecords_by_MF</title>
+</head>
+<body>
+    <center>
+        <h1>insert_accessrecords_by_MF</h1>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{EARMFO.as_p}}
+
+            <input type="submit" value="insert_accessrecords_by_MF">
+        </form>
+    </center>
+</body>
+</html>

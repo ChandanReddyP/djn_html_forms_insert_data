@@ -18,8 +18,27 @@ class TopicForm(forms.Form):
     topicname=forms.CharField(max_length=100)
 
 
+class TopicModelForm(forms.ModelForm):
+    class Meta():
+        model=Topic
+        fields='__all__'
+
+
 class WebpageForm(forms.Form):
     topicname=forms.ModelChoiceField(queryset=Topic.objects.all())
     name=forms.CharField(max_length=100)
     url=forms.URLField()
     email=forms.EmailField()
+
+
+class WebpageModelForm(forms.ModelForm):
+    class Meta():
+        model=Webpage
+        fields='__all__'
+
+
+
+class AccessRecordsModelForm(forms.ModelForm):
+    class Meta():
+        model=AccessRecords
+        fields='__all__'

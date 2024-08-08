@@ -29,6 +29,20 @@ def insert_topic(request):
     return render(request,'insert_topic.html',d)
 
 
+# insert topic by using model forms...
+
+def insert_topic_by_modelforms(request):
+    d={'ETMFO':TopicModelForm()}
+    if request.method=='POST':
+        TMFDO=TopicModelForm(request.POST)
+        if TMFDO.is_valid():
+            TMFDO.save()
+
+            return HttpResponse('topic incerted')
+
+    return render(request,'insert_topic_by_modelforms.html',d)
+
+#insert into webpage by using forms..
 
 def insert_webpage(request):
     EFWO=WebpageForm()
@@ -43,9 +57,41 @@ def insert_webpage(request):
             em=FWDO.cleaned_data['email']
 
             TO=Topic.objects.get(topic_name=tn)
-            WO=Webpage.objects.get_or_create(topi_name=TO,name=na,url=ur,email=em)[0]
+            WO=Webpage.objects.get_or_create(topic_name=TO,name=na,url=ur,email=em)[0]
             WO.save()
 
             return HttpResponse('webpage is created')
 
     return render(request,'insert_webpage.html',d)
+
+
+
+#insert into webpage using modelforms...
+
+def insert_webpage_by_MF(request):
+    EWMFO=WebpageModelForm()
+    d={'EWMFO':EWMFO}
+
+    if request.method=='POST':
+        WMFDO=WebpageModelForm(request.POST)
+        if WMFDO.is_valid():
+            WMFDO.save()
+
+            return HttpResponse('webpage is created')
+
+    return render(request,'insert_webpage_by_MF.html',d)
+
+
+#insert into accessrecords using modelforms...
+
+def insert_accessrecords_by_MF(request):
+    d={'EARMFO':AccessRecordsModelForm()}
+
+    if request.method=='POST':
+        ARMFDO=AccessRecordsModelForm(request.POST)
+        if ARMFDO.is_valid():
+            ARMFDO.save()
+
+            return HttpResponse('accessrecord is created')
+        
+    return render(request,'insert_accessrecords_by_MF.html',d)

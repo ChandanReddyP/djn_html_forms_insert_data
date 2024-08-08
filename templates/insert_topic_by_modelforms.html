@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert_topic_by_modelforms</title>
+</head>
+<body>
+    <center><h1>insert_topic_by_modelforms</h1></center>\
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ETMFO.as_p}}
+
+        <input type="submit" value="insert_topic">
+    </form>
+</body>
+</html>

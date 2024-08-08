@@ -23,5 +23,8 @@ urlpatterns = [
     path('djforms/',djforms,name='djforms'),
     path('insert_topic/',insert_topic,name='insert_topic'),
     path('insert_webpage/',insert_webpage,name='insert_webpage'),
-    
+
+    path('insert_topic_by_modelforms/',insert_topic_by_modelforms,name='insert_topic_by_modelforms'),
+    path('insert_webpage_by_MF/',insert_webpage_by_MF,name='insert_webpage_by_MF'),
+    path('insert_accessrecords_by_MF/',insert_accessrecords_by_MF,name='insert_accessrecords_by_MF')
 ]
